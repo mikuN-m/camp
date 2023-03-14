@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ログイン</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+    <body>
+
+        <div class="login-signUp-container">
+
+            <div class="sign-up">
+                <div class="login-title">
+                    <h1>新規登録</h1>
+                </div>
+    
+                <div class="login-content">
+                    <form action="/sign-up" method="post">
+                        <p>アカウント名</p>
+                        <input type="text" name="userName" value="miku">
+                        <p>メールアドレス</p>
+                        <input type="text" name="mail">
+                        <p>パスワード</p>
+                        <input type="text" name="password"> <br>
+                        <input class="submit" type="submit" value="新規登録">
+                    </form>
+                </div>
+    
+                <div class="sign-up-btn">
+                    <p><a href="/loginSwitch">すでにアカウントをお持ちの方はこちら</a></p>
+                </div>
+            </div>
+
+            <div class="login">
+                <div class="login-title">
+                    <h1>ログイン</h1>
+                </div>
+    
+                <div class="login-content">
+                    <form action="/login" method="post">
+                        <p class="error"><%= error %></p>
+                        <p>メールアドレス</p>
+                        <input name="mail">
+                        <p>パスワード</p>
+                        <input name="password"> <br>
+                        <input class="submit" type="submit" value="ログイン">
+                    </form>
+                </div>
+    
+                <div class="sign-up-btn">
+                    <p><a href="/sign-upSwitch">新規登録はこちら</a></p>
+                </div>
+            </div>            
+
+        </div>
+
+        
+    </body>
+</html>

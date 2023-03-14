@@ -1,0 +1,13 @@
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}

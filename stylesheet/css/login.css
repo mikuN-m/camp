@@ -1,0 +1,54 @@
+body {
+    width: 50%;
+    padding-top: 1%;
+    margin: 0 auto;
+}
+
+.error {
+    color: rgb(177, 32, 32);
+}
+
+.login-signUp-container {
+    border: 1px rgba(245, 222, 179, 0.795) solid;
+    border-radius: 10px;
+    background-color: rgba(245, 222, 179, 0.795);
+    text-align: center;
+    padding: 10%;
+}
+
+.login-title {
+    margin-bottom: 10%;
+}
+
+.login-title h1 {
+    border-bottom: 1px black solid;
+    padding-bottom: 2px;
+}
+
+.login-content input {
+    border: 1px rgba(0, 0, 0, 0.432) solid;
+    border-radius: 4px;
+}
+
+.login-content input {
+    margin-bottom: 7%;
+}
+
+input[type='submit'] {
+    padding: 5px 20px;
+    border: 1px rgb(194, 170, 125) solid;
+    border-radius: 4px;
+    background-color: rgb(194, 170, 125);
+}
+
+.login-content p {
+    margin-bottom: 3%;
+}
+
+.sign-up-btn a:hover {
+    color: rgba(190, 155, 90, 0.795);
+}
+
+.sign-up {
+    display: none;
+}
