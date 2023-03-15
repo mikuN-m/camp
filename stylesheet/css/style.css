@@ -1,3 +1,7 @@
+body {
+    font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
 img {
     width: 100%;
 }
@@ -10,4 +14,8 @@ a {
 
 li {
     list-style: none;
+}
+
+body * {
+    /* border: 1px red solid; */
 }

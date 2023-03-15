@@ -31,6 +31,19 @@ app.use(express.static('stylesheet'));
 
 
 
+app.use((req,res,next) => {
+    const userName = req.session.userName;
+
+    if (userName === undefined) {
+        res.locals.userName = 'ゲスト';
+        res.locals.login = true;
+    } else {
+        res.locals.userName = userName;
+        res.locals.login = false;
+    }
+
+    next();
+});
 
 
 app.get('/',(req,res) => {
@@ -42,8 +55,17 @@ app.get('/login',(req,res) => {
 });
 
 app.get('/loginSwitch',(req,res) => {
-    req.session.signUp = false;
     res.render('login.ejs',{error: null});
+});
+
+app.get('/sign-upSwitch',(req,res) => {
+    res.render('sign-up.ejs',{error: null});
+});
+
+app.get('/logOut',(req,res) => {
+    req.session.destroy((erro) => {
+        res.redirect('/');
+    });
 });
 
 app.post('/login',(req,res) => {
@@ -57,6 +79,7 @@ app.post('/login',(req,res) => {
         (error,results) => {
             if (results.length > 0) {
                 if (results[0].password === password) {
+                    req.session.userName = results[0].name;
                     res.redirect('/');
                 } else {
                     res.render('login.ejs',{error: errorMs});

@@ -11,26 +11,27 @@
 
         <div class="login-signUp-container">
 
-            <div class="login">
+            <div class="sign-up">
                 <div class="login-title">
-                    <h1>ログイン</h1>
+                    <h1>新規登録</h1>
                 </div>
-    
+            
                 <div class="login-content">
-                    <form action="/login" method="post">
-                        <p class="error"><%= error %></p>
+                    <form action="/sign-up" method="post">
+                        <p>アカウント名</p>
+                        <input type="text" name="userName" value="miku">
                         <p>メールアドレス</p>
-                        <input name="mail">
+                        <input type="text" name="mail">
                         <p>パスワード</p>
-                        <input name="password"> <br>
-                        <input class="submit" type="submit" value="ログイン">
+                        <input type="text" name="password"> <br>
+                        <input class="submit" type="submit" value="新規登録">
                     </form>
                 </div>
-    
+            
                 <div class="sign-up-btn">
-                    <p><a href="/sign-upSwitch">新規登録はこちら</a></p>
+                    <p><a href="/loginSwitch">すでにアカウントをお持ちの方はこちら</a></p>
                 </div>
-            </div>            
+            </div>          
 
         </div>
 

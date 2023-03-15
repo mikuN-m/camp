@@ -11,11 +11,25 @@
         <div class="header-content">
             <div class="header-wrapper">
 
-                <h1><a href="/">キャンプ場のなまえ</a></h1>
+                <div class="header-title">
+                    <h1><a href="/">キャンプ場のなまえ</a></h1>
+
+                    <div class="user-name">
+                        <p>ようこそ、<%= locals.userName %>さん</p>
+                    </div>
+                </div>
+
+                
 
                 <div class="header-menu">
                     <ul>
-                        <li><a href="/login">login</a></li>
+                        <li>
+                            <% if (locals.login) { %>
+                                <a href="/login">login</a>
+                            <% } else { %>
+                                <a href="/logOut">logout</a>
+                            <% } %>
+                        </li>
                         <li><a href="/plan">plan</a></li>
                         <li><a href="/access">access</a></li>
                         <li><a href="/contct">contct</a></li>

@@ -48,7 +48,3 @@ input[type='submit'] {
 .sign-up-btn a:hover {
     color: rgba(190, 155, 90, 0.795);
 }
-
-.sign-up {
-    display: none;
-}
