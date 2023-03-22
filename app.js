@@ -59,11 +59,11 @@ app.get('/loginSwitch',(req,res) => {
 });
 
 app.get('/sign-upSwitch',(req,res) => {
-    res.render('sign-up.ejs',{error: null});
+    res.render('sign-up.ejs',{textError: []});
 });
 
 app.get('/logOut',(req,res) => {
-    req.session.destroy((erro) => {
+    req.session.destroy((error) => {
         res.redirect('/');
     });
 });
@@ -91,16 +91,50 @@ app.post('/login',(req,res) => {
     );
 });
 
-app.post('/sign-up',(req,res) => {
+app.post('/sign-up',
+(req,res,next) => {
     const name = req.body.userName;
     const mail = req.body.mail;
     const password = req.body.password;
-    console.log(name);
+    let textError = [];
+
+
+    connection.query(
+        'select * from users where mail = ?',
+        [mail],
+        (error,results) => {
+            if (name === '') {
+                textError.push('＊アカウント名が入力されていません')
+            }
+            if (mail === '') {
+                textError.push('＊メールアドレスが入力されていません');
+            }
+            if (password === '') {
+                textError.push('＊パスワードが入力されていません');
+            }
+            if (results.length > 0) {
+                textError.push('＊このメールアドレスはすでに使われています');
+            }
+
+            if (textError.length > 0) {
+                res.render('sign-up.ejs',{textError: textError});
+            } else {
+                next();
+            }
+        }
+    );
+    
+},
+(req,res) => {
+    const name = req.body.userName;
+    const mail = req.body.mail;
+    const password = req.body.password;
 
     connection.query(
         'INSERT INTO users(name,mail,password) VALUE(?,?,?)',
         [name,mail,password],
         (error,results) => {
+            req.session.userName = name;
             res.redirect('/');
         }
     );

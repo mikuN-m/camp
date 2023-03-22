@@ -15,16 +15,25 @@
                 <div class="login-title">
                     <h1>新規登録</h1>
                 </div>
+
+                <p class="error"><%= textError[0] %></p>
+                <p class="error"><%= textError[1] %></p>
+                <p class="error"><%= textError[2] %></p>
+                <p class="error"><%= textError[3] %></p>
             
                 <div class="login-content">
                     <form action="/sign-up" method="post">
+
                         <p>アカウント名</p>
-                        <input type="text" name="userName" value="miku">
+                        <input type="text" name="userName">
+
                         <p>メールアドレス</p>
                         <input type="text" name="mail">
+
                         <p>パスワード</p>
                         <input type="text" name="password"> <br>
                         <input class="submit" type="submit" value="新規登録">
+                        
                     </form>
                 </div>
             

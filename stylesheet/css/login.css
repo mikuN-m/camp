@@ -41,8 +41,8 @@ input[type='submit'] {
     background-color: rgb(194, 170, 125);
 }
 
-.login-content p {
-    margin-bottom: 3%;
+.login-content .error {
+    color: red;
 }
 
 .sign-up-btn a:hover {

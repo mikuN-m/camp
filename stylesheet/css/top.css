@@ -1,10 +1,12 @@
 body {
+    background-color: rgba(255, 243, 225, 0.466);
     background-image: url(/img/top-img.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-blend-mode: soft-light;
 }
 
-.top-wrapper {
+.main-wrapper {
     height: 658px;
     width: 100%;
     position: absolute;
@@ -14,17 +16,19 @@ body {
 
 .top-content {
     position: relative;
-    top: 330px;
+    top: 45%;
     text-align: center;
 }
 
-.top-content h1 {
-    color: rgb(194, 177, 91);
-    font-size: 3.5rem;
+.top-content h2 {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
     font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
 }
 
-.top-btn {
-    margin-top: 20px;
+.top-content p {
+    margin-top: 2%;
+    font-weight: bold;
+    font-size: 1.25rem;
 }
 
