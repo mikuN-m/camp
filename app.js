@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const session = require('express-session');
-
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -70,7 +70,6 @@ app.get('/logOut',(req,res) => {
 
 app.post('/login',(req,res) => {
     const mail = req.body.mail;
-    const password = req.body.password;
     const errorMs = 'メールアドレスまたはパスワードが違います';
 
     connection.query(
@@ -78,12 +77,17 @@ app.post('/login',(req,res) => {
         [mail],
         (error,results) => {
             if (results.length > 0) {
-                if (results[0].password === password) {
-                    req.session.userName = results[0].name;
-                    res.redirect('/');
-                } else {
-                    res.render('login.ejs',{error: errorMs});
-                }
+                const password = req.body.password;
+                const hash = results[0].password;
+
+                bcrypt.compare(password,hash,(error,isEqual) => {
+                    if (isEqual) {
+                        req.session.userName = results[0].name;
+                        res.redirect('/');
+                    } else {
+                        res.render('login.ejs',{error: errorMs});
+                    }
+                });
             } else {
                 res.render('login.ejs',{error: errorMs});
             }
@@ -130,14 +134,16 @@ app.post('/sign-up',
     const mail = req.body.mail;
     const password = req.body.password;
 
-    connection.query(
-        'INSERT INTO users(name,mail,password) VALUE(?,?,?)',
-        [name,mail,password],
-        (error,results) => {
-            req.session.userName = name;
-            res.redirect('/');
-        }
-    );
+    bcrypt.hash(password,10,(error,hash) => {
+        connection.query(
+            'INSERT INTO users(name,mail,password) VALUE(?,?,?)',
+            [name,mail,hash],
+            (error,results) => {
+                req.session.userName = name;
+                res.redirect('/');
+            }
+        );
+    });
 });
 
 app.listen(3000);
