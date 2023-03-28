@@ -1,0 +1,35 @@
+.plan-wrapper {
+    width: 75%;
+    margin: 13% auto 0 auto;
+}
+
+.plan-title {
+    text-align: center;
+}
+
+.plan-container {
+    padding: 2%;
+}
+
+.plan-content {
+    margin: 2%;
+    font-weight: bold;
+    display: flex;
+    padding: 2%;
+    border: 1px rgb(44, 29, 6) solid;
+    border-radius: 10px;
+    transition: .5s all;
+}
+
+.plan-content:hover {
+    background-color: rgba(192, 168, 136, 0.5);
+    cursor: pointer;
+}
+
+.plan-img {
+    width: 25%;
+}
+
+.plan-text {
+    margin-left: 4%;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>サイトトップ</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/plan.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <%- include('header') %>
+        </div>
+
+        <div class="plan-wrapper">
+
+            <div class="plan-title">
+                <h1>プラン一覧</h1>
+            </div>
+
+            <div class="search">
+                <p>絞り込み</p>
+            </div>
+
+            <div class="plan-container">
+
+                <% plans.forEach((plan) => { %>
+
+                    <a href=<%= plan.planAbout %>>
+                        <div class="plan-content">
+                            <div class="plan-img">
+                                <img src= <%= plan.img %>>
+                            </div>
+                            <div class="plan-text">
+                                <h2 class="plan-name"><%= plan.name %></h2>
+                                <p class="plan-site"><%= plan.site %></p>
+                                <p class="plan-pplNum"><%= plan.pplNum %></p>
+                                <p class="plan-data"><%= plan.data %></p>
+                            </div>
+                        </div>
+                    </a>
+
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

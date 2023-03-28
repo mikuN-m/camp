@@ -45,7 +45,7 @@ app.use((req,res,next) => {
     next();
 });
 
-
+// トップ
 app.get('/',(req,res) => {
     res.render('top.ejs');
 });
@@ -145,5 +145,21 @@ app.post('/sign-up',
         );
     });
 });
+
+
+// プラン
+app.get('/plan',(req,res) => {
+    const plans = [
+        {planAbout: '/planAbout1', img: '/img/plan-img.jpg', name: '林間サイト', site: 'フリーサイト', pplNum: '１～４人', data: '林の中でお過ごしいただけるサイトです。バードウォッチングにも最適です。'},
+        {planAbout: '/planAbout2', img: '/img/plan-img.jpg', name: 'リバーサイト', site: 'フリーサイト', pplNum: '１～６人', data: '川のせせらぎに癒されるサイトです。魚釣りも可能です。'}
+    ];
+
+    res.render('plan.ejs',{plans: plans});
+});
+
+app.get('/planAbout1',(req,res) => {
+    res.render('planAbout/1.ejs');
+});
+
 
 app.listen(3000);

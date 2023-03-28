@@ -7,16 +7,13 @@ body {
 }
 
 .main-wrapper {
-    height: 658px;
     width: 100%;
-    position: absolute;
-    top: 0;
+    margin: 20% auto ;
+    position: static;
     z-index: 1;
 }
 
 .top-content {
-    position: relative;
-    top: 45%;
     text-align: center;
 }
 
@@ -30,5 +27,27 @@ body {
     margin-top: 2%;
     font-weight: bold;
     font-size: 1.25rem;
+}
+
+.plan-btn-content {
+    margin-top: 2%;
+}
+
+.plan-btn {
+    text-align: center;
+}
+
+.plan-btn a {
+    background-color: rgb(235, 197, 148);
+    border: 1px rgb(209, 160, 68) solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-shadow: 0 5px 5px 0 rgba(54, 41, 20, 0.801);
+}
+
+.plan-btn a:active {
+    position: relative;
+    top: 5px;
+    box-shadow: none;
 }
 

@@ -33,6 +33,7 @@
 
 .header-menu a {
     font-size: 1.25rem;
+    font-weight: bold;
     transition: .5s;
 }
 
