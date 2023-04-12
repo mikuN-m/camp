@@ -1,0 +1,45 @@
+.plan-data-wrapper {
+    width: 80%;
+    margin: 150px auto 0 auto;
+    border: 1px rgb(44, 29, 6) solid;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+.plan-data-title {
+    text-align: center;
+}
+
+.plan-img-box {
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    background-image: url(../img/plan-1-1.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    transition: .5s all;
+}
+
+.arrow {
+    background-color: rgba(255, 255, 255, 0.603);
+    width: 10%;
+    height: 300px;
+    line-height: 300px;
+    transition: .5s all;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.753);
+}
+
+.plan-data-nav {
+    text-align: center;
+}
+
+.reserve-btn {
+    margin: 0 auto;
+    text-align: center;
+    width: 23%;
+}

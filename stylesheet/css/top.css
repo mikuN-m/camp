@@ -1,8 +1,8 @@
 body {
     background-color: rgba(255, 243, 225, 0.466);
     background-image: url(/img/top-img.jpg);
+    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
     background-blend-mode: soft-light;
 }
 
@@ -35,19 +35,7 @@ body {
 
 .plan-btn {
     text-align: center;
-}
-
-.plan-btn a {
-    background-color: rgb(235, 197, 148);
-    border: 1px rgb(209, 160, 68) solid;
-    border-radius: 10px;
-    padding: 5px 10px;
-    box-shadow: 0 5px 5px 0 rgba(54, 41, 20, 0.801);
-}
-
-.plan-btn a:active {
-    position: relative;
-    top: 5px;
-    box-shadow: none;
+    margin: 0 auto;
+    width: 150px;
 }
 

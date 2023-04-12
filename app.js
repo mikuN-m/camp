@@ -28,6 +28,7 @@ const ses_opt = {
 app.use(session(ses_opt));
 
 app.use(express.static('stylesheet'));
+app.use(express.static('javascript'));
 
 
 
@@ -76,7 +77,7 @@ app.post('/login',(req,res) => {
         'select * from users where mail = ?',
         [mail],
         (error,results) => {
-            if (results.length > 0) {
+            if (results !== undefined) {
                 const password = req.body.password;
                 const hash = results[0].password;
 
@@ -116,11 +117,11 @@ app.post('/sign-up',
             if (password === '') {
                 textError.push('＊パスワードが入力されていません');
             }
-            if (results.length > 0) {
+            if (results !== undefined) {
                 textError.push('＊このメールアドレスはすでに使われています');
             }
 
-            if (textError.length > 0) {
+            if (textError == []) {
                 res.render('sign-up.ejs',{textError: textError});
             } else {
                 next();
@@ -136,7 +137,7 @@ app.post('/sign-up',
 
     bcrypt.hash(password,10,(error,hash) => {
         connection.query(
-            'INSERT INTO users(name,mail,password) VALUE(?,?,?)',
+            'INSERT INTO users(name,mail,password) VALUES(?,?,?)',
             [name,mail,hash],
             (error,results) => {
                 req.session.userName = name;
@@ -158,7 +159,11 @@ app.get('/plan',(req,res) => {
 });
 
 app.get('/planAbout1',(req,res) => {
-    res.render('planAbout/1.ejs');
+    res.render('planAbout/data1.ejs');
+});
+
+app.get('/reserve',(req,res) => {
+    res.render('reserve.ejs');
 });
 
 

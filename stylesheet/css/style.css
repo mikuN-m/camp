@@ -19,3 +19,16 @@ li {
 body * {
     /* border: 1px red solid; */
 }
+.btn {
+    background-color: rgb(235, 197, 148);
+    border: 1px rgb(209, 160, 68) solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 2px 0 rgba(54, 41, 20, 0.801);
+}
+
+.btn:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+}
