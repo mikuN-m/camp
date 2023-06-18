@@ -1,0 +1,55 @@
+.login-hidden {
+    text-align: center;
+    margin-top: 25%;
+}
+
+.reserve-wrapper {
+    width: 60%;
+    margin: 150px auto 0 auto;
+}
+
+.reserve-title {
+    text-align: center;
+}
+
+.reserve-title span {
+    color: rgb(105, 91, 50);
+}
+
+.reserve-container {
+    border: 1px rgb(44, 29, 6) solid;
+    border-radius: 10px;
+    padding: 5% 20%;
+    text-align: center;
+}
+
+.reserve-content p {
+    text-align: left;
+    margin-left: 85px;
+}
+
+.reserve-content span {
+    font-size: .8rem;
+    color: red;
+}
+
+.form-border {
+    border: 1px rgb(44, 29, 6) solid;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.radio-box-content {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.error-text {
+    color: red;
+}
+
+.text {
+    color: black;
+}

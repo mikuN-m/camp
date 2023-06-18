@@ -13,5 +13,85 @@
             <%- include('./header') %>
         </div>
 
+        <% if (locals.login) { %>
+            <div class="login-hidden">
+                <p>予約するにはログインが必要です</p>
+                <a href="/login">ログインはこちらから</a>
+            </div>
+        <% } else { %>
+            <div class="reserve-wrapper">
+
+                <div class="reserve-title">
+    
+                    <h1>予約ページ</h1>
+    
+                </div>
+    
+                <div class="reserve-container">
+
+                    <% if (confirm) { %>
+                        <div class="error-text">
+
+                            <% textError.forEach((error)=>{ %>
+                                <p><%= error %></p>
+                            <% }) %>
+
+                            <p class="text">が入力されていませんでした</p>
+
+                        </div>
+                    <% } %>
+    
+                    <div class="reserve-content">
+    
+                        <form action="/reserveNext/<%= plan.id %>" method="post">
+    
+                            <p>名前</p>
+                            <input type="text" class="form-border" name="reserveName">
+                            <p>ふりがな</p>
+                            <input type="text" class="form-border" name="furigana">
+                            <br><br><br>
+    
+                            <p>電話番号</p>
+                            <input type="number" class="form-border" name="tel">
+                            <p>メールアドレス</span></p>
+                            <input type="text" class="form-border" name="mail">
+                            <br><br><br>
+    
+                            <p>日にち</p>
+                            <input type="date" class="form-border" name="data">
+                            <p>チェックイン</p>
+                            <input type="time" min="11/00/00" class="form-border" name="dataTime">
+                            <br><br><br>
+                            
+                            <p>予約サイト</p>
+                            <input type="text" class="form-border" name="reserveSite" value="<%= plan.name %>" readonly>
+                            <p>予約人数</p>
+                            <div class="radio-box-content">
+    
+                                <% for (let i=0; i<=plan.num-1; i++) { %>
+                                    <div class="radio-box">
+                                        <input type="radio" class="radio" name="pplNum" value=<%= i+1 %>><label><%= i+1 %></label>
+                                    </div>
+                                <% } %>
+    
+                            </div>
+    
+                            <p>備考欄</p>
+                            <textarea class="form-border" name="note" rows="5" placeholder="ご要望ご質問など"></textarea>
+                            <br><br>
+                            
+                            <input type="submit" class="btn" value="予約確認へ">
+            
+                        </form>
+    
+                    </div>
+    
+                </div>
+    
+           </div> 
+        <% } %>
+
+       
+
     </body>
 </html>

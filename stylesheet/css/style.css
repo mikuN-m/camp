@@ -16,6 +16,10 @@ li {
     list-style: none;
 }
 
+p {
+    font-weight: bold;
+}
+
 body * {
     /* border: 1px red solid; */
 }
@@ -25,10 +29,33 @@ body * {
     border-radius: 10px;
     padding: 5px 10px;
     box-shadow: 0 2px 2px 0 rgba(54, 41, 20, 0.801);
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .btn:active {
     position: relative;
     top: 2px;
     box-shadow: none;
+}
+
+
+.page-bac {
+    margin-top: 140px;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.page-bac a {
+    transition: .5s all;
+}
+
+.page-bac a:hover {
+    color: rgba(71, 69, 69, 0.678);
 }

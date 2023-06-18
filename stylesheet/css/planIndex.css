@@ -1,6 +1,6 @@
 .plan-data-wrapper {
     width: 80%;
-    margin: 150px auto 0 auto;
+    margin: 20px auto 0 auto;
     border: 1px rgb(44, 29, 6) solid;
     border-radius: 5px;
     padding: 1%;
@@ -43,3 +43,9 @@
     text-align: center;
     width: 23%;
 }
+
+.reservation-text {
+    text-align: center;
+    margin-top: 2px;
+}
+

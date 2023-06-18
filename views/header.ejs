@@ -23,15 +23,13 @@
 
                 <div class="header-menu">
                     <ul>
-                        <li>
-                            <% if (locals.login) { %>
-                                <a href="/login">login</a>
-                            <% } else { %>
-                                <a href="/logOut">logout</a>
-                            <% } %>
-                        </li>
+                        <% if (locals.login) { %>
+                            <li><a href="/login">login</a></li>
+                        <% } else { %>
+                            <li><a href="/logOut">logout</a></li>
+                            <li><a href="/myPage">myPage</a></li>
+                        <% } %>
                         <li><a href="/plan">plan</a></li>
-                        <li><a href="/access">access</a></li>
                         <li><a href="/contct">contct</a></li>
                     </ul>
                 </div>

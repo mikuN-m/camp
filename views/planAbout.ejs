@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>サイトの詳細</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/planIndex.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <%- include('./header') %>
+        </div>
+        
+        <div class="page-bac">
+            <a href="/plan">←プラン一覧へ</a>
+        </div>
+
+        <div class="plan-data-wrapper">
+            
+            <div class="plan-data-container">
+
+                <div class="plan-data-title">
+                    <h2><%= plan.name %></h2>
+                </div>
+
+                <div class="plan-img-box" id="js-slide">
+                    
+                    <div class="arrow" id="js-back"></div>
+                    <div class="arrow" id="js-next"><img src="../img/plan-data-arrow.png"></div>
+
+                </div>
+
+                <div class="plan-data-nav">
+
+                    <div class="plna-data-site">
+                        <p><%= plan.site %></p>
+                    </div>
+
+                    <div class="plan-data-pplNum">
+                        <p><%= plan.pplNum %></p>
+                    </div>
+
+                </div>
+
+                <% if (locals.reservation) { %>
+                    <div class="reservation-text">
+                        <p>すでに予約があります</p>
+                    </div>
+                <% } else { %>
+                    <div class="reserve-btn">
+                        <% if (locals.login) { %>
+                            <p>予約するにはログインが必要です</p>
+                            <div class="btn"><a href="/login">ログインへ</a></div>
+                        <% } else { %>
+                            <div class="btn"><a href="/reserve/<%= plan.id %>">ここを予約する</a></div>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                
+                
+            </div>
+
+        </div>
+
+        <script src="../planIndex.js"></script>
+    </body>
+</html>

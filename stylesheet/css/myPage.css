@@ -1,0 +1,64 @@
+.login {
+    text-align: center;
+}
+
+.myPage-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.myPage-btn {
+    margin: 100px auto 0;
+    width: 150px;
+    border-bottom: 1px solid #313131;
+}
+
+.myPage-btn:hover {
+    cursor: pointer;
+    color: #313131b2;
+}
+
+.content {
+    width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 40px;
+    text-align: center;
+    margin: 0 auto 40px;
+}
+
+.content h2 {
+    margin: 20px auto;
+}
+
+.reservation-box {
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.reservation-title {
+    border-bottom: #313131 1px solid;
+}
+
+.btn-box a {
+    color: red;
+}
+
+.delete-page-content {
+    width: 60%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.delete-btn-box {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    margin: 40px auto;
+}
+
+.delete-btn a {
+    color: red;
+}

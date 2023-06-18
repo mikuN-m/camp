@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/reserve.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <%- include('./header') %>
+        </div>
+
+        <div class="reserve-wrapper">
+
+            <div class="reserve-title">
+
+                <h1>確認ページ</h1>
+
+            </div>
+
+            <div class="reserve-container">
+
+                <div class="reserve-content">
+
+                    <form action="/confirmation" method="post">
+
+                        <p>名前<span></p>
+                        <input type="text" name="confirmationeservReName" value="<%= formItem[0] %>" readonly>
+                        <p>ふりがな</p>
+                        <input type="text" name="confirmationFurigana" value="<%= formItem[1] %>" readonly>
+                        <br><br><br>
+
+                        <p>電話番号</p>
+                        <input type="number" name="confirmationTel" value="<%= formItem[2] %>" readonly>
+                        <p>メールアドレス</p>
+                        <input type="text" name="confirmationMail" value="<%= formItem[3] %>" readonly>
+                        <br><br><br>
+
+                        <p>日にち</p>
+                        <input type="text" name="confirmationData" value="<%= formItem[4] %>" readonly>
+                        <p>チェックイン</p>
+                        <input type="text" name="confirmationDataTime" value="<%= formItem[5] %>" readonly>
+                        <br><br><br>
+                        
+                        <p>予約サイト</p>
+                        <input type="text" name="confirmationReserveSite" value="<%= formItem[6] %>" readonly>
+                        <p>予約人数</p>
+                        <input type="number" name="confirmationPplNum" value="<%= formItem[7] %>" readonly>
+
+                        <p>備考欄</p>
+                        <textarea name="confirmationNote" readonly><%= formItem[8] %></textarea>
+                        <br><br>
+                        
+                        <input type="submit" class="btn" value="この内容で予約する">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div> 
+
+    </body>
+</html>
+

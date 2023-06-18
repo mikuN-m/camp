@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>マイページ</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/myPage.css">
+    </head>
+    <body>
+
+        <div class="header">
+            <%- include('./header') %>
+        </div>
+
+        <div class="page-bac">
+            <a href="/">←ホームへ</a>
+        </div>
+
+        <% if (locals.login) { %>
+            <div class="login">
+                <p>マイページを確認するにはログインが必要です</p>
+                <div class="btn"><a href="/login">ログインへ</a></div>
+            </div>
+        <% } else { %>
+
+            <div class="myPage-wrapper">
+
+                <div class="myPage-content">
+
+                    <div class="myPage-name">
+                        <h1><%= locals.userName %>さんのマイページ</h1>
+                    </div>
+
+                    <div class="content">
+
+                        <h2>予約情報</h2>
+
+                        <% if (locals.reservation) { %>
+                            
+                            <div class="reservation-box">
+    
+                                <p class="reservation-title">名前  <span><%= reservationList[0] %></span></p><br>
+    
+                                <p class="reservation-title">ふりがな  <span><%= reservationList[1] %></span></p><br>
+    
+                                <p class="reservation-title">電話番号  <span><%= reservationList[2] %></span></p><br>
+    
+                                <p class="reservation-title">メールアドレス  <span><%= reservationList[3] %></span></p><br>
+    
+                                <p class="reservation-title">日にち  <span><%= reservationList[4] %></span></p><br>
+    
+                                <p class="reservation-title">チェックイン  <span><%= reservationList[5] %></span></p><br>
+    
+                                <p class="reservation-title">サイト  <span><%= reservationList[6] %></span></p><br>
+    
+                                <p class="reservation-title">人数  <span><%= reservationList[7] %></span></p><br>
+    
+                                <p class="reservation-title">備考欄  <span><%= reservationList[8] %></span></p><br>
+    
+                            </div>
+    
+                            <div class="btn-box">
+                                <a href="/reservation-delete"><p class="btn">予約を取り消す</p></a>
+                            </div>
+                                
+                            </div>
+    
+                        <% } else { %>
+                            <p>予約はありません</p>
+                        <% } %>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+    </body>
+</html>
