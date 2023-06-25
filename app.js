@@ -285,8 +285,6 @@ app.post('/confirmation', (req,res) => {
     
     const id = req.session.userId;
 
-    console.log(reserveName,furigana,tel,mail,data,dataTime,reserveSite,pplNum,note);
-
     connection.query(
         'INSERT INTO reservations(name,furigana,phone_number,email,reservation_date,reservation_datatime,num_of_guests,reservation_plan,note,userId) VALUES(?,?,?,?,?,?,?,?,?,?)',
         [reserveName,furigana,tel,mail,data,dataTime,pplNum,reserveSite,note,id],
@@ -308,13 +306,11 @@ app.post('/confirmation', (req,res) => {
 app.get('/myPage',(req,res) => {
     const id = req.session.userId;
 
-    if (id == undefined) {
-        res.render('myPage.ejs',{reservationList: []});
-    } else {
-        connection.query(
-            'select * from reservations where userId = ?',
-            [id],
-            (error,results) => {
+    connection.query(
+        'select * from reservations where userId = ?',
+        [id],
+        (error,results) => {
+            if (results.length > 0) {
                 const reservationList = [
                     results[0].name,
                     results[0].furigana,
@@ -327,9 +323,12 @@ app.get('/myPage',(req,res) => {
                     results[0].note
                 ];
                 res.render('myPage.ejs',{reservationList: reservationList});
+            } else {
+                res.render('myPage.ejs',{reservationList: []});
             }
-        );
-    }
+            
+        }
+    );
 });
 
 app.get('/reservation-delete',(req,res) => {
