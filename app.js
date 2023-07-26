@@ -87,6 +87,7 @@ app.post('/login',(req,res) => {
         'select * from users where mail = ?',
         [mail],
         (error,results) => {
+                //mysqlが起動しないとエラーが起きます
             if (results.length > 0) {
                 const name = results[0].name;
                 const id = results[0].id;

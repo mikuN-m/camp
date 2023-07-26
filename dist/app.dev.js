@@ -80,6 +80,7 @@ app.post('/login', function (req, res) {
   var mail = req.body.mail;
   var errorMs = 'メールアドレスまたはパスワードが違います';
   connection.query('select * from users where mail = ?', [mail], function (error, results) {
+    //mysqlが起動しないとエラーが起きます
     if (results.length > 0) {
       var name = results[0].name;
       var id = results[0].id;
